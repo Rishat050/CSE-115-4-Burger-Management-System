@@ -49,8 +49,7 @@ void splash (void)
 
    }
    printf("\n\n\n\n\n");
-   sleep(1);
-   system("cls");
+
    FILE *sp;
    sp=fopen("image.txt","r");
    char img[1000];
@@ -60,6 +59,9 @@ void splash (void)
        printf("%s",img);
 
    }
+printf("\\n\n\n\n");
+   printf("...............Press any key to continue............\n");
+   getchar();
 
 
 

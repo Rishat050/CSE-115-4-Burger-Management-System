@@ -6,7 +6,6 @@ int main()
 {
 
     splash();
-    sleep(2);
     system("cls");
     return 0;
 }
