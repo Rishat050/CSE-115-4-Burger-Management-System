@@ -1,10 +1,12 @@
 
+
 #include<stdio.h>
 #include<string.h>
 #include<unistd.h>
 #include<dos.h>
 void splash (void)
 {
+    //Loading bar
      for (int i=0;i<=100;i++)
      {
         printf("                   Project is Loading [%d%%]",i);
@@ -38,6 +40,7 @@ void splash (void)
      "   |______  /____/ |__|  \\___  / \\___  >__|    \\____|__  (____  /___|  (____  /\\___  / \\___  >__|_|  /\\___  >___|  /__|   /_______  / ____/____  > |__|  \\___  >__|_|  / \n"
      "           \\/            /_____/      \\/                \\/     \\/     \\/     \\//_____/      \\/      \\/     \\/     \\/               \\/\\/         \\/            \\/      \\/  \n";
 
+  //Ascii text
     for(int i=0;i<strlen(ris);i++)
     {
 
@@ -53,6 +56,9 @@ void splash (void)
    FILE *sp;
    sp=fopen("image.txt","r");
    char img[1000];
+
+   //reading image from text file
+
    while(!feof(sp))
    {
        fgets(img,sizeof(sp),sp);
