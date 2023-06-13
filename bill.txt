@@ -1,0 +1,7 @@
+Customar Name:rishat bin
+ ID         Name                 Quantity    Payment type:Cash
+---------------------------------------------
+ 1          Cheeseburger         2         
+ 2          Hamburger            1         
+Paid Tk 16.970000
+
