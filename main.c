@@ -9,6 +9,7 @@ struct order
     char name [50];
     int item;
     int id;
+    double price;
 };
 int main()
 {
@@ -26,7 +27,7 @@ int main()
     char pas[15];
     char srch[1000];
     int ch,payment;
-    int i=0;
+    int i=1;
     char n;
     char inv="";
     double sum =0;
@@ -52,6 +53,15 @@ int main()
     burgers[count++] = burger7;
 
 
+    ord[1].price=5.99;
+    ord[2].price=4.99;
+    ord[3].price=6.99;
+    ord[4].price=3.65;
+    ord[5].price=4.50;
+    ord[6].price=7.50;
+    ord[7].price=8.29;
+
+
     while (1){  //loop for keep stay menubar till type 3
 
         system("cls");
@@ -63,10 +73,11 @@ int main()
 
         if(ch==1){
         // Display the burger list
+        system("cls");
         display_burger_list(burgers, count);
          printf("\n");
 
-         i=0;
+         i=1;
          sum=0;
 
         fflush(stdin);
@@ -85,31 +96,31 @@ int main()
 
        //matching id and calculate money for burger
         if (ord[i].id==1){
-        sum=sum + (5.99*ord[i].item);
+        sum=sum + (ord[i].price*ord[i].item);
         strcpy(ord[i].name,"Cheeseburger");
      }
      else if(ord[i].id==2){
-        sum=sum + (4.99*ord[i].item);
+        sum=sum + (ord[i].price*ord[i].item);
         strcpy(ord[i].name,"Hamburger");
      }
      else if(ord[i].id==3){
-        sum=sum + (6.99*ord[i].item);
+        sum=sum + (ord[i].price*ord[i].item);
         strcpy(ord[i].name,"Bacon Burger");
      }
      else if(ord[i].id==4){
-        sum=sum + (3.65*ord[i].item);
+        sum=sum + (ord[i].price*ord[i].item);
         strcpy(ord[i].name,"Bean Burger");
      }
      else if(ord[i].id==5){
-        sum=sum + (4.50*ord[i].item);
+        sum=sum + (ord[i].price*ord[i].item);
         strcpy(ord[i].name,"Mutton Burger");
      }
      else if(ord[i].id==6){
-        sum=sum + (7.50*ord[i].item);
+        sum=sum + (ord[i].price*ord[i].item);
         strcpy(ord[i].name,"Beef Burger");
      }
      else if(ord[i].id==7){
-        sum=sum + (8.29*ord[i].item);
+        sum=sum + (ord[i].price*ord[i].item);
         strcpy(ord[i].name,"Wild Salmon Burger");
      }
      else {
@@ -144,17 +155,23 @@ int main()
 
          if(inv=='y'){
 
-         bill=fopen("bill.txt","a+");
-          fprintf(bill,"Customar Name:%s",user);
-          fprintf(bill," %-10s %-20s %-10s  Payment type:Cash\n","ID","Name","Quantity");
-          fprintf(bill,"---------------------------------------------\n");
+          bill=fopen("bill.txt","a+");
+          fprintf(bill,"%51s\n","B&G Invoice Information");
+          fprintf(bill,"%51s\n","=======================");
+          fprintf(bill,"\n\n");
+          fprintf(bill," Customar Name: %s",user);
+          fprintf(bill," Payment Type :Cash\n\n");
+          fprintf(bill,"--------------------------------------------------------------------------------\n");
+          fprintf(bill," %-10s %-20s %-10s\t %s\t%s  \n","ID","Name","Quantity","Unit Price","Total");
+          fprintf(bill,"--------------------------------------------------------------------------------\n");
 
-          for(int j=0;j<i;j++){
-          fprintf(bill," %-10d %-20s %-10d\n",ord[j].id,ord[j].name,ord[j].item);
+          for(int j=1;j<i;j++){
+          fprintf(bill," %-10d %-20s %-10d\t %.2f\t\t%.2f\n",ord[j].id,ord[j].name,ord[j].item,ord[j].price,(ord[j].price*ord[j].item));
 
           }
 
-          fprintf(bill,"Paid Tk %f",sum);
+          fprintf(bill,"--------------------------------------------------------------------------------\n");
+          fprintf(bill,"\t\t\t\t\t\t\tGrand Total=%.2f Tk",sum);
           fprintf(bill,"\n\n");
           printf("\t\t\t..........Successfully Saved Bill..............\n");
           sleep(1);
@@ -190,16 +207,22 @@ int main()
          if(inv=='y'){
 
                 bill=fopen("bill.txt","a+");
-          fprintf(bill,"Customar Name:%s",user);
-          fprintf(bill," %-10s %-20s %-10s  Payment type:Card\n","ID","Name","Quantity");
-          fprintf(bill,"---------------------------------------------\n");
+          fprintf(bill,"%51s\n","B&G Invoice Information");
+          fprintf(bill,"%51s\n","=======================");
+          fprintf(bill,"\n\n");
+          fprintf(bill," Customar Name: %s",user);
+          fprintf(bill," Payment Type :Card\n\n");
+          fprintf(bill,"--------------------------------------------------------------------------------\n");
+          fprintf(bill," %-10s %-20s %-10s\t %s\t%s  \n","ID","Name","Quantity","Unit Price","Total");
+          fprintf(bill,"--------------------------------------------------------------------------------\n");
 
-          for(int j=0;j<i;j++){
-          fprintf(bill," %-10d %-20s %-10d\n",ord[j].id,ord[j].name,ord[j].item);
+          for(int j=1;j<i;j++){
+          fprintf(bill," %-10d %-20s %-10d\t %.2f\t\t%.2f\n",ord[j].id,ord[j].name,ord[j].item,ord[j].price,(ord[j].price*ord[j].item));
 
           }
 
-          fprintf(bill,"Paid Tk %f",sum);
+          fprintf(bill,"--------------------------------------------------------------------------------\n");
+          fprintf(bill,"\t\t\t\t\t\t\tGrand Total=%.2f Tk",sum);
           fprintf(bill,"\n\n");
           printf("\t\t\t..........Successfully Saved Bill..............\n");
           sleep(1);
