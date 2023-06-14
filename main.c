@@ -4,6 +4,7 @@
 #include"login.h"
 #include"menu.h"
 
+
 struct order
 {
     char name [50];
@@ -11,6 +12,9 @@ struct order
     int id;
     double price;
 };
+
+
+
 int main()
 {
 
@@ -149,11 +153,12 @@ int main()
     scanf("%d",&payment);
 
     if(payment==1){
+            system("cls");
         printf(".......Successfully paid!!!!!!!!\n");
         printf("Do you want to save invoice(y/n)\n");
         scanf(" %c",&inv);
 
-         if(inv=='y'){
+         if(inv=='y'){ //Saving Bill IN file
 
           bill=fopen("bill.txt","a+");
           fprintf(bill,"%51s\n","B&G Invoice Information");
@@ -189,6 +194,7 @@ int main()
 
 
     else if(payment==2){
+            system("cls");
 
         printf("Enter Card Number:\n");
         scanf("%s",card);
@@ -204,7 +210,7 @@ int main()
 
         scanf(" %c",&inv);
 
-         if(inv=='y'){
+         if(inv=='y'){ //bill save for option 2
 
                 bill=fopen("bill.txt","a+");
           fprintf(bill,"%51s\n","B&G Invoice Information");
@@ -249,28 +255,51 @@ int main()
 
 
 
-    else if(ch==2)
+    else if(ch==2) //Showing bill
     {
 
          system("cls");
+         bill=fopen("bill.txt","r");
+
+         if(bill==NULL){
+            printf("==>!!Invoice Deleted\n");
+            fclose(bill);
+            sleep(2);
+         }
+
+
+       else {
+
           printf("==>Loading Invoice...\n");
           sleep(2);
           system("cls");
-          bill=fopen("bill.txt","r");
 
 
-          while(!feof(bill)){
+          while(!feof(bill)){ //printing bill from file
 
             fgets(srch,sizeof(srch),bill);
             printf("%s",srch);
 
           }
 
+          fclose(bill);
           printf("\n\n\n\n>>>>>>Enter any key to Return Main Menu>>>>>>>>\n");
           fflush(stdin);
           getchar();
 
+         }
     }
+
+
+     else if(ch==3){ //delet all bill or file
+
+            system("cls");
+            remove("bill.txt");
+                printf("==> All Invoice Deleted Successfully!!\n");
+            sleep(2);
+
+         }
+
 
 
 
