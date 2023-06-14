@@ -5,3 +5,15 @@ Customar Name:rishat bin
  2          Hamburger            1         
 Paid Tk 16.970000
 
+Customar Name:alvi
+ ID         Name                 Quantity    Payment type:Card
+---------------------------------------------
+ 1          Cheeseburger         2         
+Paid Tk 11.980000
+
+Customar Name:fd
+ ID         Name                 Quantity    Payment type:Cash
+---------------------------------------------
+ 1          Cheeseburger         2         
+Paid Tk 11.980000
+

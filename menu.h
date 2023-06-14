@@ -23,8 +23,9 @@ void display_burger_list(struct Burger *burgers, int count) {
 void menu (void)
 {
     printf("==> 1. Burger List & Order\n");
-    printf("==> 2. Admin Pannel\n");
-    printf("==> 3. Exit\n");
+    printf("==> 2. Show All Invoice\n");
+    printf("==> 3. Delet Invoice\n");
+    printf("==> 4. Exit\n");
 }
 
 

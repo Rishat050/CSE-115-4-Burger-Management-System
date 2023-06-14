@@ -24,6 +24,7 @@ int main()
     char user[100];
     char card[20];
     char pas[15];
+    char srch[1000];
     int ch,payment;
     int i=0;
     char n;
@@ -225,13 +226,38 @@ int main()
 
 
 
-      else if (ch==3){
+    else if(ch==2)
+    {
+
+         system("cls");
+          printf("==>Loading Invoice...\n");
+          sleep(2);
+          system("cls");
+          bill=fopen("bill.txt","r");
+
+
+          while(!feof(bill)){
+
+            fgets(srch,sizeof(srch),bill);
+            printf("%s",srch);
+
+          }
+
+          printf("\n\n\n\n>>>>>>Enter any key to Return Main Menu>>>>>>>>\n");
+          fflush(stdin);
+          getchar();
+
+    }
+
+
+
+      else if (ch==4){
         exit_program();
          }
 
 
 
-        else if(ch!=1||ch!=2||ch!=3){
+        else if(ch!=1||ch!=2||ch!=3||ch!=4){
 
         system("cls");
         printf("\n");

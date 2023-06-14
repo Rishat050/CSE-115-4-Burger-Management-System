@@ -66,6 +66,7 @@ void splash (void)
 
    }
 printf("\\n\n\n\n");
+   fclose(sp);
    printf("...............Press any key to continue............\n");
    getchar();
 
