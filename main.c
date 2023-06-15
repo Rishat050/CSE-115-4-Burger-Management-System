@@ -21,6 +21,8 @@ int main()
     splash();
     system("cls");
     login();
+    system("D:\\resturent.jpg");
+
 
          FILE *bill;
 
@@ -78,6 +80,7 @@ int main()
         if(ch==1){
         // Display the burger list
         system("cls");
+        system("D:\\music1.mp3");
         display_burger_list(burgers, count);
          printf("\n");
 
@@ -144,6 +147,7 @@ int main()
 
 
     system("cls");
+    system("D:\\payment1.jpg");
     printf("\t\t\t\t\t............Payment Getway.........\n\n\n");
     printf("==>1.Pay Cash\n");
     printf("==>2.Credit Card\n\n");
@@ -154,6 +158,7 @@ int main()
 
     if(payment==1){
             system("cls");
+            system("D:\\burger.jpg");
         printf(".......Successfully paid!!!!!!!!\n");
         printf("Do you want to save invoice(y/n)\n");
         scanf(" %c",&inv);
@@ -203,6 +208,7 @@ int main()
         printf("Enter passwod:\n");
         scanf("%s",pas);
         system("cls");
+        system("D:\\burger.jpg");
 
         printf("\t\t\t............payment Successful!!!!!!\n\n\n");
         printf("Do you want to save invoice(y/n)\n");
